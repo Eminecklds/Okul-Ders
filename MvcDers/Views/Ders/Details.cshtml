@@ -1,0 +1,26 @@
+﻿@model MvcDers.Models.Ders
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ders</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DersAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DersAdi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DersID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

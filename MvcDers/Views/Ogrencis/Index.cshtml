@@ -1,0 +1,78 @@
+﻿@model IEnumerable<MvcDers.Models.Ogrenci>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OkulNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Soyadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sinif.SinifAdi)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OkulNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soyadi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sinif.SinifAdi)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.OgrenciID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.OgrenciID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.OgrenciID })
+                <button type="button" @Url.Action("_DersListele", "Ogrencis") class="btn btn-success btn-lg" data-toggle="modal" data-target=@("#Ders_"+item.OgrenciID)>
+                    Dersler
+                </button>
+            </td>
+        </tr>
+    }
+
+</table>
+@foreach (var item in Model)
+{
+    <div class="modal fade" id=@("Ders_" + item.OgrenciID) tabindex="-1" role="dialog" aria-labelledby="">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Öğrenciler</h4>
+                </div>
+                <form method="post" action="">
+                    <div class="modal-body">
+                        @{
+                            Html.RenderAction("_DersListele", "Ogrencis", new { id = item.OgrenciID });
+                        }
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}

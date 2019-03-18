@@ -1,0 +1,26 @@
+﻿@model MvcDers.Models.Sinif
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Html.ActionLink("Anasayfa", "Index", "Home")</h2>
+
+<div>
+    <h4>Sinif</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SinifAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SinifAdi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SinifID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

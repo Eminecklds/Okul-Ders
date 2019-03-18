@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MvcDers.Models.Ogrenci>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sinif.SinifAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OkulNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Soyadi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sinif.SinifAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OkulNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Soyadi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OgrenciID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OgrenciID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OgrenciID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<MvcDers.Models.Ders>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@Html.ActionLink("Anasayfa", "Index", "Home")</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DersAdi)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DersAdi)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.DersID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.DersID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.DersID })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,49 @@
+﻿@model MvcDers.Models.Ogrenci
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ogrenci</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OkulNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OkulNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Soyadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soyadi)
+        </dd>       
+        <dt>
+            @Html.DisplayNameFor(model => model.Sinif.SinifAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sinif.SinifAdi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OgrenciID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
